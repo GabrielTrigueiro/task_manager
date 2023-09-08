@@ -19,6 +19,12 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('Tarefas'),
         ),
+        body: Container(
+          color: Colors.amberAccent,
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+        ),
       ),
     );
   }
