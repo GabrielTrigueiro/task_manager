@@ -22,10 +22,10 @@ class MyApp extends StatelessWidget {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Task(),
-            Task(),
-            Task(),
-            Task(),
+            Task('Testando'),
+            Task('titulo um'),
+            Task('titulo dois'),
+            Task('titulo tres'),
           ],
         ),
         floatingActionButton: FloatingActionButton(
@@ -37,35 +37,32 @@ class MyApp extends StatelessWidget {
 }
 
 class Task extends StatelessWidget {
-  const Task({Key? key}) : super(key: key);
+  final String titulo;
+  const Task(this.titulo, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Stack(
-        children: [
-          Container(
-            color: Colors.amberAccent,
-            height: 140,
-          ),
-          Container(
-            color: Colors.white,
-            height: 100,
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    color: Colors.black26,
-                    width: 72,
-                    height: 100,
-                  ),
-                  Text('Aprender flutter'),
-                  ElevatedButton(
-                      onPressed: () {}, child: Icon(Icons.arrow_drop_up))
-                ]),
-          )
-        ],
-      ),
+    return Stack(
+      children: [
+        Container(
+          color: Colors.amberAccent,
+          height: 140,
+        ),
+        Container(
+          color: Colors.white,
+          height: 100,
+          child:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+            Container(
+              color: Colors.black26,
+              width: 72,
+              height: 100,
+            ),
+            Text(titulo),
+            ElevatedButton(onPressed: () {}, child: Icon(Icons.arrow_drop_up))
+          ]),
+        )
+      ],
     );
   }
 }
