@@ -25,10 +25,6 @@ class MyApp extends StatelessWidget {
             Task('titulo um'),
             Task('titulo dois'),
             Task('titulo tres'),
-            Task('Testando'),
-            Task('titulo um'),
-            Task('titulo dois'),
-            Task('titulo tres'),
           ],
         ),
         floatingActionButton: FloatingActionButton(
@@ -58,7 +54,7 @@ class _TaskState extends State<Task> {
       child: Stack(
         children: [
           Container(
-            color: Colors.amberAccent,
+            color: Colors.lightBlue,
             height: 140,
           ),
           Column(
@@ -93,7 +89,21 @@ class _TaskState extends State<Task> {
                           child: Icon(Icons.arrow_drop_up))
                     ]),
               ),
-              Text('Nível $nivel')
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                        width: 200,
+                        child: LinearProgressIndicator(
+                          value: nivel / 10,
+                          color: Colors.white,
+                        )),
+                    Text('Nível: $nivel'),
+                  ],
+                ),
+              )
             ],
           )
         ],
