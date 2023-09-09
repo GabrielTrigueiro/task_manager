@@ -19,9 +19,12 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('Tarefas'),
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        body: ListView(
           children: [
+            Task('Testando'),
+            Task('titulo um'),
+            Task('titulo dois'),
+            Task('titulo tres'),
             Task('Testando'),
             Task('titulo um'),
             Task('titulo dois'),
@@ -42,27 +45,41 @@ class Task extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          color: Colors.amberAccent,
-          height: 140,
-        ),
-        Container(
-          color: Colors.white,
-          height: 100,
-          child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-            Container(
-              color: Colors.black26,
-              width: 72,
-              height: 100,
-            ),
-            Text(titulo),
-            ElevatedButton(onPressed: () {}, child: Icon(Icons.arrow_drop_up))
-          ]),
-        )
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Stack(
+        children: [
+          Container(
+            color: Colors.amberAccent,
+            height: 140,
+          ),
+          Container(
+            color: Colors.white,
+            height: 100,
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    color: Colors.black26,
+                    width: 72,
+                    height: 100,
+                  ),
+                  //dando largura para o container o texto nao ultrapassa ele
+                  Container(
+                    width: 200,
+                    child: Text(
+                      titulo,
+                      // o que nao couber no container vai ficar com reticencias
+                      style: TextStyle(
+                          fontSize: 24, overflow: TextOverflow.ellipsis),
+                    ),
+                  ),
+                  ElevatedButton(
+                      onPressed: () {}, child: Icon(Icons.arrow_drop_up))
+                ]),
+          )
+        ],
+      ),
     );
   }
 }
