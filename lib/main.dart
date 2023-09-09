@@ -40,13 +40,19 @@ class MyApp extends StatelessWidget {
 }
 
 // esse componente não vai atualizar o nivel pois é stateless
-class Task extends StatelessWidget {
+class Task extends StatefulWidget {
   final String titulo;
   const Task(this.titulo, {Key? key}) : super(key: key);
 
   @override
+  State<Task> createState() => _TaskState();
+}
+
+class _TaskState extends State<Task> {
+  // se usar a ver depois do override ela vai ser reiniciada a cada atualização
+  int nivel = 0;
+  @override
   Widget build(BuildContext context) {
-    int nivel = 0;
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Stack(
@@ -72,7 +78,7 @@ class Task extends StatelessWidget {
                       Container(
                         width: 200,
                         child: Text(
-                          titulo,
+                          widget.titulo,
                           // o que nao couber no container vai ficar com reticencias
                           style: TextStyle(
                               fontSize: 24, overflow: TextOverflow.ellipsis),
@@ -80,7 +86,9 @@ class Task extends StatelessWidget {
                       ),
                       ElevatedButton(
                           onPressed: () {
-                            nivel++;
+                            setState(() {
+                              nivel++;
+                            });
                           },
                           child: Icon(Icons.arrow_drop_up))
                     ]),
