@@ -125,6 +125,7 @@ class _FormScreenState extends State<FormScreen> {
                                 const SnackBar(
                                     content: Text('Tarefa Adicionada')));
                           }
+                          Navigator.pop(context);
                         }),
                         child: Text('Adicionar'))
                   ]),
