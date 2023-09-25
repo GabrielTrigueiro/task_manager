@@ -1,5 +1,5 @@
-import 'package:alura_flutter_curso_1/components/tasks.dart';
 import 'package:flutter/material.dart';
+import 'package:task_manager/components/tasks.dart';
 
 class InitialScreen extends StatefulWidget {
   const InitialScreen({Key? key}) : super(key: key);
