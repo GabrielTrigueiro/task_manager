@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager/data/task_inherited.dart';
 import 'package:task_manager/screens/form_screen.dart';
 import 'package:task_manager/screens/tela_inicial.dart';
 
@@ -23,7 +24,8 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: InitialScreen(),
+      //precisa estar no topo para todos a baixo acessarem suas informações
+      home: TaskInherited(child: const InitialScreen()),
     );
   }
 }
