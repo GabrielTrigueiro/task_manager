@@ -72,7 +72,9 @@ class TaskDao {
     return transformMapToList(result);
   }
 
-  // delete(String nomeDaTarefa) async {
-  //   print("Acessando delete");
-  // }
+  delete(String nomeDaTarefa) async {
+    final Database bancoDeDados = await getDatabase();
+    return bancoDeDados
+        .delete(_tablename, where: "$_name = ?", whereArgs: [nomeDaTarefa]);
+  }
 }
