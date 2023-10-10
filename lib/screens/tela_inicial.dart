@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:task_manager/components/tasks.dart';
 import 'package:task_manager/data/task_dao.dart';
@@ -30,19 +32,16 @@ class _InitialScreenState extends State<InitialScreen> {
                       child: Column(
                     children: [CircularProgressIndicator(), Text("Carregando")],
                   ));
-                  break;
                 case ConnectionState.waiting:
                   return Center(
                       child: Column(
                     children: [CircularProgressIndicator(), Text("Carregando")],
                   ));
-                  break;
                 case ConnectionState.active:
                   return Center(
                       child: Column(
                     children: [CircularProgressIndicator(), Text("Carregando")],
                   ));
-                  break;
                 case ConnectionState.done:
                   if (snapshot.hasData && items != null) {
                     if (items.isNotEmpty) {
@@ -65,9 +64,7 @@ class _InitialScreenState extends State<InitialScreen> {
                     );
                   }
                   return Text("Erro ao carregar tarefas");
-                  break;
               }
-              return Text("Erro desconhecido");
             },
           )),
       floatingActionButton: FloatingActionButton(
@@ -79,7 +76,12 @@ class _InitialScreenState extends State<InitialScreen> {
                 taskContext: context,
               ),
             ),
-          );
+          ).then((value) => setState(() {
+                // Aqui você deveria chamar a função que atualiza a lista de tarefas.
+                // Por exemplo:
+                // tasks = fetchTasksFromDatabase();
+                print('Adicionando nova tarefa');
+              }));
         },
         child: const Icon(Icons.add),
       ),
