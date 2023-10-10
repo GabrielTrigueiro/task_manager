@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:task_manager/components/tasks.dart';
 
 class TaskInherited extends InheritedWidget {
-  TaskInherited({super.key, required this.child}) : super(child: child);
+  TaskInherited({
+    Key? key,
+    required Widget child,
+  }) : super(key: key, child: child);
 
-  final Widget child;
-
-  final List<Tasks> taskList = [
-    Tasks('Estudar Flutter', 'assets/images/flutter.png', 3),
-    Tasks('Andar de Bike', 'assets/images/bike.webp', 2),
-    Tasks('Ler 50 páginas', 'assets/images/ler.jpg', 1),
-    Tasks('Meditar', 'assets/images/meditar.jpeg', 4),
-    Tasks(
+  final List<Task> taskList = [
+    Task('Estudar Flutter', 'assets/images/flutter.png', 3),
+    Task('Andar de Bike', 'assets/images/bike.webp', 2),
+    Task('Ler 50 páginas', 'assets/images/ler.jpg', 1),
+    Task('Meditar', 'assets/images/meditar.jpeg', 4),
+    Task(
       'Jogar',
       'assets/images/jogar.jpg',
       0,
@@ -19,17 +20,17 @@ class TaskInherited extends InheritedWidget {
   ];
 
   void newTask(String name, String photo, int difficulty) {
-    taskList.add(Tasks(name, photo, difficulty));
+    taskList.add(Task(name, photo, difficulty));
   }
 
-  static TaskInherited? of(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<TaskInherited>();
+  static TaskInherited of(BuildContext context) {
+    final TaskInherited? result =
+        context.dependOnInheritedWidgetOfExactType<TaskInherited>();
+    assert(result != null, 'No TaskInherited found in context');
+    return result!;
   }
 
   @override
-  //fica de olho na tarefa que queremos
-  //ele precisa de um estado anterior da informação
-  //se o tamanho da lista for diferente ele atualizada todos os widget
   bool updateShouldNotify(TaskInherited oldWidget) {
     return oldWidget.taskList.length != taskList.length;
   }
