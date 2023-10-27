@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:task_manager/data/task_inherited.dart';
-import 'package:task_manager/screens/form_screen.dart';
 import 'package:task_manager/screens/tela_inicial.dart';
 
 void main() {
