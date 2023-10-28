@@ -1,16 +1,19 @@
-# task_manager
+## Gerenciador de Tarefas
 
-A new Flutter project.
+O código de Flutter: Task Manager - são **Classes** e **Funções** para gerar uma aplicação de um **Gerenciador de tarefas**, que **registra tarefas e mostra seu nível de dificuldade**.
 
-## Getting Started
+![GIF animado demonstrando funcionalidades do projeto](https://i.imgur.com/TuEsEgL.gif)
 
-This project is a starting point for a Flutter application.
+## ✔️ Técnicas e tecnologias
+- `Context`
+- `Assets(URL ou local)`
+- `StateFull e StateLess widgets`
+- `SQFlite`
+- `CRUD`
 
-A few resources to get you started if this is your first Flutter project:
+## 🛠️ Abrir e rodar o projeto
+**Para executar este projeto você precisa:**
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Ter uma IDE, que pode ser o  [Android Studio](https://developer.android.com/) instalado na sua máquina;
+- Ter a [SDK do Flutter](https://docs.flutter.dev/get-started/install) na versão 3.0.0;
+- Ter o [Node.JS](https://nodejs.org/en/) instalado na sua máquina;
